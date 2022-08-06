@@ -47,6 +47,8 @@ streamlit.text(fruityvice_response)
 streamlit.dataframe(fruits_to_show)
 
 
+
+
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response)
 
@@ -57,4 +59,10 @@ my_cur.execute("SELECT * from pc_rivery_db.public.fruit_load_list")
 my_data_row = my_cur.fetchall()
 streamlit.header("The Fruit Load list Contains:")
 streamlit.dataframe(my_data_row)
+
+
+add_my_fruit = streamlit.text_input('What fruit would  you like to add?')
+streamlit.write('Thanks for adding ', add_my_fruit)
+
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
 
